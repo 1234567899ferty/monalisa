@@ -1,0 +1,2564 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>La Mona Lisa — Museo Renacentista</title>
+
+<style>
+
+:root{
+    --azul:#767F9E;
+    --dorado:#DAA464;
+    --oro-claro:#DEC384;
+    --marfil:#E8DDB4;
+
+    --azul-oscuro:#4F5872;
+    --azul-profundo:#343B4E;
+    --marfil-oscuro:#D7CC9F;
+    --negro-suave:#252936;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:Georgia,"Times New Roman",serif;
+    background:var(--azul-profundo);
+    color:var(--marfil);
+}
+
+.presentation{
+    width:100vw;
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+}
+
+.slide{
+    position:absolute;
+    inset:0;
+    display:none;
+    padding:60px;
+    overflow-y:auto;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(222,195,132,.16),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(218,164,100,.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            var(--azul-profundo),
+            var(--azul)
+        );
+
+    color:var(--marfil);
+}
+
+.slide.active{
+    display:flex;
+    animation:aparecer .7s ease;
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:scale(1.025);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.slide::before{
+    content:"";
+    position:absolute;
+    inset:18px;
+
+    border:
+        1px solid
+        rgba(232,221,180,.25);
+
+    pointer-events:none;
+    z-index:0;
+}
+
+.slide::after{
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    right:-120px;
+    top:-120px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(218,164,100,.25);
+
+    box-shadow:
+        0 0 0 25px rgba(218,164,100,.04),
+        0 0 0 50px rgba(218,164,100,.03);
+
+    pointer-events:none;
+}
+
+.content{
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    max-width:1200px;
+
+    margin:auto;
+}
+
+.kicker{
+    color:var(--oro-claro);
+
+    text-transform:uppercase;
+
+    letter-spacing:5px;
+
+    font-family:Arial,sans-serif;
+
+    font-size:13px;
+
+    margin-bottom:15px;
+}
+
+h2{
+    font-size:clamp(40px,5vw,72px);
+    line-height:1;
+    margin-bottom:30px;
+    color:var(--marfil);
+    font-weight:normal;
+}
+
+h3{
+    font-size:25px;
+    color:var(--oro-claro);
+    margin-bottom:12px;
+    font-weight:normal;
+}
+
+p{
+    color:var(--marfil);
+
+    font-family:Georgia,serif;
+
+    font-size:18px;
+
+    line-height:1.7;
+}
+
+.highlight{
+    color:var(--oro-claro);
+}
+
+.gold{
+    color:var(--dorado);
+}
+
+
+/* =========================================================
+   PORTADA
+========================================================= */
+
+.cover{
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    flex-direction:column;
+
+    background:
+        linear-gradient(
+            rgba(52,59,78,.68),
+            rgba(52,59,78,.92)
+        ),
+        url(
+            "https://upload.wikimedia.org/wikipedia/commons/6/6a/Mona_Lisa.jpg"
+        );
+
+    background-size:cover;
+    background-position:center;
+}
+
+.cover::before{
+    border:
+        2px solid
+        rgba(232,221,180,.5);
+}
+
+.cover-content{
+    position:relative;
+    z-index:3;
+    max-width:950px;
+    padding:40px;
+}
+
+.cover-content::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    border:
+        1px solid
+        rgba(222,195,132,.5);
+
+    transform:scale(1.04);
+
+    pointer-events:none;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:10px 22px;
+
+    border:
+        1px solid
+        var(--dorado);
+
+    color:var(--oro-claro);
+
+    font-family:Arial,sans-serif;
+
+    border-radius:3px;
+
+    font-size:12px;
+
+    letter-spacing:4px;
+
+    margin-bottom:28px;
+
+    background:
+        rgba(52,59,78,.55);
+}
+
+.cover h1{
+    font-size:clamp(60px,10vw,145px);
+
+    line-height:.85;
+
+    text-transform:uppercase;
+
+    letter-spacing:8px;
+
+    color:var(--marfil);
+
+    font-weight:normal;
+
+    text-shadow:
+        0 8px 30px
+        rgba(0,0,0,.7);
+}
+
+.cover h2{
+    margin-top:30px;
+
+    color:var(--oro-claro);
+
+    font-size:clamp(18px,3vw,28px);
+
+    line-height:1.4;
+}
+
+.author{
+    margin-top:45px;
+
+    color:var(--marfil);
+
+    font-family:Arial,sans-serif;
+
+    font-size:14px;
+
+    letter-spacing:2px;
+}
+
+
+/* =========================================================
+   ORNAMENTO
+========================================================= */
+
+.ornament{
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin:25px 0;
+
+    color:var(--dorado);
+}
+
+.ornament::before,
+.ornament::after{
+    content:"";
+
+    height:1px;
+
+    background:var(--dorado);
+
+    flex:1;
+}
+
+.ornament span{
+    font-size:20px;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:25px;
+
+    margin-top:30px;
+}
+
+.card{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(232,221,180,.12),
+            rgba(52,59,78,.25)
+        );
+
+    border:
+        1px solid
+        rgba(232,221,180,.2);
+
+    border-radius:4px;
+
+    padding:30px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.18);
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+
+    border-color:var(--dorado);
+
+    box-shadow:
+        0 18px 45px
+        rgba(0,0,0,.3);
+}
+
+.card .icon{
+    font-size:38px;
+    margin-bottom:18px;
+}
+
+.card p{
+    font-size:16px;
+}
+
+
+/* =========================================================
+   IMAGEN + TEXTO
+========================================================= */
+
+.split{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:55px;
+
+    align-items:center;
+}
+
+.art{
+    width:100%;
+
+    max-height:65vh;
+
+    object-fit:contain;
+
+    border:
+        8px solid
+        rgba(218,164,100,.35);
+
+    outline:
+        1px solid
+        var(--oro-claro);
+
+    box-shadow:
+        0 25px 60px
+        rgba(0,0,0,.45);
+
+    background:var(--azul-profundo);
+}
+
+.caption{
+    margin-top:12px;
+
+    text-align:center;
+
+    color:var(--marfil-oscuro);
+
+    font-family:Arial,sans-serif;
+
+    font-size:12px;
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline{
+    margin-top:30px;
+
+    border-left:
+        2px solid
+        var(--dorado);
+
+    padding-left:35px;
+}
+
+.event{
+    margin-bottom:32px;
+
+    position:relative;
+}
+
+.event::before{
+    content:"";
+
+    position:absolute;
+
+    left:-43px;
+
+    top:5px;
+
+    width:13px;
+    height:13px;
+
+    border-radius:50%;
+
+    background:var(--oro-claro);
+
+    border:
+        3px solid
+        var(--azul-profundo);
+
+    box-shadow:
+        0 0 0 1px
+        var(--dorado);
+}
+
+.year{
+    color:var(--dorado);
+
+    font-family:Arial,sans-serif;
+
+    font-size:17px;
+
+    letter-spacing:2px;
+
+    margin-bottom:5px;
+}
+
+
+/* =========================================================
+   NÚMEROS
+========================================================= */
+
+.big-number{
+    font-family:Georgia,serif;
+
+    font-size:75px;
+
+    color:var(--oro-claro);
+
+    font-weight:normal;
+
+    line-height:1;
+
+    margin-bottom:15px;
+}
+
+.fact{
+    text-align:center;
+
+    padding:35px;
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.start-button{
+    display:inline-block;
+
+    margin-top:35px;
+
+    padding:14px 30px;
+
+    border:
+        1px solid
+        var(--dorado);
+
+    background:
+        rgba(218,164,100,.15);
+
+    color:var(--marfil);
+
+    font-family:Arial,sans-serif;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.start-button:hover{
+    background:var(--dorado);
+
+    color:var(--azul-profundo);
+}
+
+button{
+    border:
+        1px solid
+        rgba(232,221,180,.2);
+
+    cursor:pointer;
+
+    color:var(--marfil);
+
+    background:
+        rgba(232,221,180,.08);
+
+    width:44px;
+
+    height:44px;
+
+    border-radius:3px;
+
+    font-size:21px;
+
+    transition:.2s;
+}
+
+button:hover{
+    background:var(--dorado);
+
+    color:var(--azul-profundo);
+
+    transform:translateY(-2px);
+}
+
+
+/* =========================================================
+   PREGUNTAS
+========================================================= */
+
+.questions-container{
+    max-width:950px;
+    margin:0 auto;
+}
+
+.question-number{
+    color:var(--dorado);
+
+    font-family:Arial,sans-serif;
+
+    font-size:14px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    margin-bottom:15px;
+}
+
+.question-card{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(232,221,180,.15),
+            rgba(52,59,78,.4)
+        );
+
+    border:
+        1px solid
+        rgba(222,195,132,.45);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.3);
+
+    padding:45px;
+
+    text-align:center;
+
+    min-height:340px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+.question-card h3{
+    font-size:
+        clamp(25px,3vw,40px);
+
+    color:var(--marfil);
+
+    line-height:1.35;
+
+    margin-bottom:30px;
+
+    max-width:800px;
+}
+
+.question-icon{
+    font-size:48px;
+
+    margin-bottom:20px;
+}
+
+.answer{
+    display:none;
+
+    margin-top:25px;
+
+    padding:18px 25px;
+
+    border-left:
+        3px solid
+        var(--dorado);
+
+    background:
+        rgba(218,164,100,.12);
+
+    color:var(--oro-claro);
+
+    font-size:20px;
+
+    animation:respuesta .4s ease;
+}
+
+.answer.show{
+    display:block;
+}
+
+@keyframes respuesta{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.question-buttons{
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin-top:25px;
+
+    flex-wrap:wrap;
+}
+
+.question-button{
+    width:auto;
+
+    height:auto;
+
+    padding:
+        13px 24px;
+
+    font-family:Arial,sans-serif;
+
+    font-size:13px;
+
+    letter-spacing:1px;
+
+    background:
+        rgba(218,164,100,.12);
+}
+
+.question-button:hover{
+    background:var(--dorado);
+}
+
+.question-progress{
+    margin-top:25px;
+
+    font-family:Arial,sans-serif;
+
+    font-size:13px;
+
+    color:var(--marfil-oscuro);
+
+    letter-spacing:2px;
+}
+
+
+/* =========================================================
+   CONCLUSIÓN
+========================================================= */
+
+.final{
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+}
+
+.final h2{
+    font-size:clamp(48px,7vw,95px);
+
+    line-height:1.05;
+}
+
+.quote{
+    max-width:800px;
+
+    margin:25px auto;
+
+    font-size:25px;
+
+    line-height:1.5;
+
+    font-style:italic;
+
+    color:var(--marfil);
+}
+
+
+/* =========================================================
+   CONTROLES
+========================================================= */
+
+.controls{
+    position:fixed;
+
+    z-index:100;
+
+    bottom:25px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 14px;
+
+    background:
+        rgba(52,59,78,.93);
+
+    border:
+        1px solid
+        rgba(232,221,180,.25);
+
+    border-radius:4px;
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,.3);
+}
+
+#counter{
+    min-width:70px;
+
+    text-align:center;
+
+    font-family:Arial,sans-serif;
+
+    font-size:13px;
+
+    color:var(--marfil);
+}
+
+
+/* =========================================================
+   PROGRESO
+========================================================= */
+
+.progress{
+    position:fixed;
+
+    z-index:200;
+
+    top:0;
+    left:0;
+
+    height:4px;
+
+    width:0%;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--dorado),
+            var(--oro-claro)
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(218,164,100,.5);
+
+    transition:.4s;
+}
+
+
+/* =========================================================
+   MENÚ
+========================================================= */
+
+.menu{
+    position:fixed;
+
+    top:20px;
+    right:25px;
+
+    z-index:150;
+}
+
+.menu > button{
+    background:
+        rgba(52,59,78,.9);
+}
+
+.menu-panel{
+    position:absolute;
+
+    right:0;
+    top:55px;
+
+    width:290px;
+
+    padding:12px;
+
+    background:
+        rgba(52,59,78,.98);
+
+    border:
+        1px solid
+        rgba(232,221,180,.25);
+
+    border-radius:4px;
+
+    display:none;
+
+    max-height:70vh;
+
+    overflow:auto;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.4);
+}
+
+.menu-panel.show{
+    display:block;
+}
+
+.menu-item{
+    padding:13px;
+
+    border-radius:3px;
+
+    cursor:pointer;
+
+    color:var(--marfil);
+
+    font-family:Arial,sans-serif;
+
+    font-size:13px;
+
+    transition:.2s;
+}
+
+.menu-item:hover{
+    background:
+        rgba(218,164,100,.2);
+
+    color:var(--oro-claro);
+}
+
+.menu-item.active{
+    background:var(--dorado);
+
+    color:var(--azul-profundo);
+}
+
+
+/* =========================================================
+   MÓVIL
+========================================================= */
+
+@media(max-width:800px){
+
+    .slide{
+        padding:
+            40px
+            25px
+            100px;
+    }
+
+    .grid,
+    .split{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    p{
+        font-size:16px;
+    }
+
+    .art{
+        max-height:42vh;
+    }
+
+    .cover h1{
+        font-size:60px;
+    }
+
+    .slide::before{
+        inset:10px;
+    }
+
+    .question-card{
+        padding:30px 20px;
+        min-height:360px;
+    }
+}
+
+@media(max-width:500px){
+
+    .slide{
+        padding:
+            30px
+            18px
+            100px;
+    }
+
+    h2{
+        font-size:40px;
+    }
+
+    .card{
+        padding:22px;
+    }
+
+    .controls{
+        bottom:15px;
+    }
+
+    .menu{
+        right:15px;
+        top:15px;
+    }
+
+    .question-card h3{
+        font-size:25px;
+    }
+
+    .question-button{
+        padding:11px 17px;
+    }
+}
+
+
+/* =========================================================
+   PANTALLA COMPLETA
+========================================================= */
+
+.fullscreen-mode .controls{
+    bottom:20px;
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="presentation">
+
+<div class="progress" id="progress"></div>
+
+
+<!-- =====================================================
+     01 PORTADA
+====================================================== -->
+
+<section class="slide cover active">
+
+<div class="cover-content">
+
+<div class="badge">
+HISTORIA DEL ARTE
+</div>
+
+<h1>
+La<br>
+Mona Lisa
+</h1>
+
+<div class="ornament">
+<span>❦</span>
+</div>
+
+<h2>
+Una obra maestra del Renacimiento
+</h2>
+
+<div class="author">
+LEONARDO DA VINCI · SIGLO XVI
+</div>
+
+<button
+class="start-button"
+onclick="nextSlide()">
+
+COMENZAR EXPOSICIÓN
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     02 ¿QUÉ ES?
+====================================================== -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="kicker">
+01 · Introducción
+</div>
+
+<h2>
+¿Qué es la Mona Lisa?
+</h2>
+
+<div class="split">
+
+<div>
+
+<p>
+La <span class="highlight">Mona Lisa</span>
+es un retrato realizado por el artista
+italiano
+<span class="gold">Leonardo da Vinci</span>.
+</p>
+
+<br>
+
+<p>
+Es una de las obras de arte más reconocidas
+de la historia y actualmente forma parte
+de la colección del Museo del Louvre,
+en París.
+</p>
+
+<div class="ornament">
+<span>✦</span>
+</div>
+
+<div class="card">
+
+<h3>
+Nombre italiano
+</h3>
+
+<p>
+La Gioconda o Monna Lisa.
+</p>
+
+</div>
+
+</div>
+
+
+<div>
+
+<img
+class="art"
+src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Mona_Lisa.jpg"
+alt="Mona Lisa">
+
+<div class="caption">
+La Mona Lisa · Leonardo da Vinci
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     03 LEONARDO
+====================================================== -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="kicker">
+02 · El artista
+</div>
+
+<h2>
+Leonardo da Vinci
+</h2>
+
+<div class="split">
+
+<div>
+
+<img
+class="art"
+src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Leonardo_self.jpg"
+alt="Autorretrato de Leonardo">
+
+<div class="caption">
+Retrato tradicionalmente atribuido
+a Leonardo da Vinci
+</div>
+
+</div>
+
+
+<div>
+
+<p>
+Leonardo da Vinci nació en
+<span class="gold">1452</span>
+en Vinci, Italia.
+</p>
+
+<br>
+
+<p>
+Fue pintor, inventor, investigador y
+estudioso de distintas áreas del conocimiento.
+</p>
+
+<br>
+
+<p>
+Su interés por la naturaleza, la anatomía,
+las matemáticas y la perspectiva influyó
+profundamente en su arte.
+</p>
+
+<div class="ornament">
+<span>❦</span>
+</div>
+
+<div class="card">
+
+<h3>
+El hombre del Renacimiento
+</h3>
+
+<p>
+Leonardo representa el ideal renacentista
+de combinar arte, ciencia y conocimiento.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     04 HISTORIA
+====================================================== -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="kicker">
+03 · Historia
+</div>
+
+<h2>
+Una obra a través del tiempo
+</h2>
+
+<div class="timeline">
+
+<div class="event">
+
+<div class="year">
+1452
+</div>
+
+<p>
+Nace Leonardo da Vinci en Vinci, Italia.
+</p>
+
+</div>
+
+
+<div class="event">
+
+<div class="year">
+PRINCIPIOS DEL SIGLO XVI
+</div>
+
+<p>
+Leonardo realiza el retrato que posteriormente
+sería conocido como la Mona Lisa.
+</p>
+
+</div>
+
+
+<div class="event">
+
+<div class="year">
+SIGLO XVI
+</div>
+
+<p>
+La pintura llega a Francia y pasa a formar
+parte de las colecciones reales.
+</p>
+
+</div>
+
+
+<div class="event">
+
+<div class="year">
+1793
+</div>
+
+<p>
+El Louvre abre como museo público.
+</p>
+
+</div>
+
+
+<div class="event">
+
+<div class="year">
+1911
+</div>
+
+<p>
+La Mona Lisa desaparece del Louvre.
+</p>
+
+</div>
+
+
+<div class="event">
+
+<div class="year">
+1913
+</div>
+
+<p>
+La pintura es recuperada y finalmente
+regresa al Louvre.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     05 TÉCNICA
+====================================================== -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="kicker">
+04 · Técnica
+</div>
+
+<h2>
+¿Cómo fue pintada?
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="icon">
+🎨
+</div>
+
+<h3>
+Sfumato
+</h3>
+
+<p>
+Leonardo utilizó transiciones muy suaves
+entre luces y sombras, creando una apariencia
+sin contornos demasiado marcados.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+👁️
+</div>
+
+<h3>
+La expresión
+</h3>
+
+<p>
+La expresión del rostro es uno de los elementos
+que más ha llamado la atención de generaciones
+de espectadores.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🌄
+</div>
+
+<h3>
+El paisaje
+</h3>
+
+<p>
+El fondo muestra un paisaje imaginario con
+montañas, caminos y cuerpos de agua.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+📐
+</div>
+
+<h3>
+Composición
+</h3>
+
+<p>
+La posición de la figura dirige la atención
+hacia su rostro y sus manos.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     06 IDENTIDAD
+====================================================== -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="kicker">
+05 · El misterio
+</div>
+
+<h2>
+¿Quién es la mujer?
+</h2>
+
+<div class="split">
+
+<div>
+
+<p>
+Una identificación tradicional sostiene que
+la modelo podría ser
+<span class="gold">
+Lisa Gherardini
+</span>,
+esposa del comerciante florentino
+Francesco del Giocondo.
+</p>
+
+<br>
+
+<p>
+Por esta razón la obra también recibe el nombre
+de La Gioconda.
+</p>
+
+<br>
+
+<p>
+A lo largo de los siglos también han surgido
+diferentes teorías sobre la identidad de la
+persona representada.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="big-number">
+500+
+</div>
+
+<p>
+años de historia, investigación y debate
+alrededor de una de las pinturas más famosas
+del mundo.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     07 ROBO
+====================================================== -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="kicker">
+06 · El robo
+</div>
+
+<h2>
+Cuando la Mona Lisa desapareció
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="icon">
+🏛️
+</div>
+
+<h3>
+1911
+</h3>
+
+<p>
+La Mona Lisa desapareció del Museo del Louvre,
+provocando una enorme atención pública.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🔎
+</div>
+
+<h3>
+La investigación
+</h3>
+
+<p>
+Las autoridades investigaron la desaparición
+mientras el caso recibía atención internacional.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🇮🇹
+</div>
+
+<h3>
+Italia
+</h3>
+
+<p>
+La obra fue localizada en Italia aproximadamente
+dos años después de su desaparición.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🖼️
+</div>
+
+<h3>
+El regreso
+</h3>
+
+<p>
+Después de su recuperación, la pintura volvió
+a formar parte de las colecciones del Louvre.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     08 LOUVRE
+====================================================== -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="kicker">
+07 · El museo
+</div>
+
+<h2>
+El Louvre
+</h2>
+
+<div class="split">
+
+<div>
+
+<p>
+Actualmente la Mona Lisa se encuentra en el
+<span class="highlight">
+Museo del Louvre
+</span>
+de París, Francia.
+</p>
+
+<br>
+
+<p>
+Es una de las piezas más conocidas de las
+colecciones del museo y recibe visitantes
+de diferentes partes del mundo.
+</p>
+
+<div class="ornament">
+<span>✦</span>
+</div>
+
+<div class="card">
+
+<h3>
+París · Francia
+</h3>
+
+<p>
+Una obra italiana conservada actualmente
+en uno de los museos más importantes
+del mundo.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card fact">
+
+<div class="big-number">
+🇫🇷
+</div>
+
+<h3>
+MUSEO DEL LOUVRE
+</h3>
+
+<p>
+París, Francia
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     09 IMPORTANCIA
+====================================================== -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="kicker">
+08 · Cultura
+</div>
+
+<h2>
+¿Por qué es tan famosa?
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="icon">
+🌎
+</div>
+
+<h3>
+Reconocimiento mundial
+</h3>
+
+<p>
+Su imagen se ha reproducido innumerables veces
+en libros, películas, publicidad y cultura popular.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🎬
+</div>
+
+<h3>
+Cultura popular
+</h3>
+
+<p>
+La pintura ha sido reinterpretada y parodiada
+en diferentes medios.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🔬
+</div>
+
+<h3>
+Investigación
+</h3>
+
+<p>
+Su técnica, materiales, conservación e historia
+continúan siendo estudiados.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🖼️
+</div>
+
+<h3>
+Historia del arte
+</h3>
+
+<p>
+Es una referencia fundamental para estudiar
+el arte del Renacimiento.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     10 DATOS
+====================================================== -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="kicker">
+09 · Datos curiosos
+</div>
+
+<h2>
+La Mona Lisa en números
+</h2>
+
+<div class="grid">
+
+<div class="card fact">
+
+<div class="big-number">
+77
+</div>
+
+<p>
+centímetros aproximadamente de alto.
+</p>
+
+</div>
+
+
+<div class="card fact">
+
+<div class="big-number">
+53
+</div>
+
+<p>
+centímetros aproximadamente de ancho.
+</p>
+
+</div>
+
+
+<div class="card fact">
+
+<div class="big-number">
+1503
+</div>
+
+<p>
+fecha aproximada tradicionalmente asociada
+con el inicio de la pintura.
+</p>
+
+</div>
+
+
+<div class="card fact">
+
+<div class="big-number">
+1911
+</div>
+
+<p>
+año del famoso robo del Louvre.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     11 PREGUNTAS
+====================================================== -->
+
+<section class="slide">
+
+<div class="content questions-container">
+
+<div class="kicker">
+10 · Participación
+</div>
+
+<h2>
+Preguntas para mis compañeros
+</h2>
+
+<div class="ornament">
+<span>❦</span>
+</div>
+
+<div class="question-card">
+
+<div class="question-icon" id="questionIcon">
+❓
+</div>
+
+<div class="question-number" id="questionNumber">
+Pregunta 1 de 5
+</div>
+
+<h3 id="questionText">
+¿Quién pintó la Mona Lisa?
+</h3>
+
+<div
+class="answer"
+id="answerText">
+Leonardo da Vinci.
+</div>
+
+<div class="question-buttons">
+
+<button
+class="question-button"
+id="answerButton"
+onclick="showAnswer()">
+
+MOSTRAR RESPUESTA
+
+</button>
+
+<button
+class="question-button"
+onclick="nextQuestion()">
+
+SIGUIENTE PREGUNTA ›
+
+</button>
+
+</div>
+
+<div class="question-progress"
+id="questionProgress">
+
+1 / 5
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     12 CONCLUSIÓN
+====================================================== -->
+
+<section class="slide final">
+
+<div class="content">
+
+<div class="kicker">
+11 · Conclusión
+</div>
+
+<h2>
+Una sonrisa<br>
+que atravesó los siglos
+</h2>
+
+<div class="ornament">
+<span>❦</span>
+</div>
+
+<p class="quote">
+La Mona Lisa no es solamente un retrato:
+es una obra que combina arte, historia,
+técnica y misterio.
+</p>
+
+<br>
+
+<p>
+<span class="highlight">
+Gracias por escuchar.
+</span>
+</p>
+
+</div>
+
+</section>
+
+</div>
+
+
+<!-- =========================================================
+     MENÚ
+========================================================= -->
+
+<div class="menu">
+
+<button
+onclick="toggleMenu()"
+title="Abrir menú">
+
+☰
+
+</button>
+
+<div
+class="menu-panel"
+id="menuPanel">
+
+<div
+class="menu-item active"
+onclick="goToSlide(0)">
+01 · Portada
+</div>
+
+<div
+class="menu-item"
+onclick="goToSlide(1)">
+02 · ¿Qué es?
+</div>
+
+<div
+class="menu-item"
+onclick="goToSlide(2)">
+03 · Leonardo da Vinci
+</div>
+
+<div
+class="menu-item"
+onclick="goToSlide(3)">
+04 · Historia
+</div>
+
+<div
+class="menu-item"
+onclick="goToSlide(4)">
+05 · Técnica
+</div>
+
+<div
+class="menu-item"
+onclick="goToSlide(5)">
+06 · Identidad
+</div>
+
+<div
+class="menu-item"
+onclick="goToSlide(6)">
+07 · El robo
+</div>
+
+<div
+class="menu-item"
+onclick="goToSlide(7)">
+08 · El Louvre
+</div>
+
+<div
+class="menu-item"
+onclick="goToSlide(8)">
+09 · Cultura
+</div>
+
+<div
+class="menu-item"
+onclick="goToSlide(9)">
+10 · Datos curiosos
+</div>
+
+<div
+class="menu-item"
+onclick="goToSlide(10)">
+11 · Preguntas
+</div>
+
+<div
+class="menu-item"
+onclick="goToSlide(11)">
+12 · Conclusión
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================================================
+     CONTROLES
+========================================================= -->
+
+<div class="controls">
+
+<button
+onclick="previousSlide()"
+title="Anterior">
+‹
+</button>
+
+<div id="counter">
+1 / 12
+</div>
+
+<button
+onclick="nextSlide()"
+title="Siguiente">
+›
+</button>
+
+<button
+onclick="toggleFullscreen()"
+title="Pantalla completa">
+⛶
+</button>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+let currentSlide = 0;
+
+const slides =
+    document.querySelectorAll(".slide");
+
+const menuItems =
+    document.querySelectorAll(".menu-item");
+
+const counter =
+    document.getElementById("counter");
+
+const progress =
+    document.getElementById("progress");
+
+
+/* =========================================================
+   MOSTRAR DIAPOSITIVA
+========================================================= */
+
+function showSlide(index){
+
+    if(index < 0){
+        index = slides.length - 1;
+    }
+
+    if(index >= slides.length){
+        index = 0;
+    }
+
+    slides.forEach(slide => {
+        slide.classList.remove("active");
+    });
+
+    menuItems.forEach(item => {
+        item.classList.remove("active");
+    });
+
+    currentSlide = index;
+
+    slides[currentSlide]
+        .classList
+        .add("active");
+
+    if(menuItems[currentSlide]){
+        menuItems[currentSlide]
+            .classList
+            .add("active");
+    }
+
+    counter.textContent =
+        `${currentSlide + 1} / ${slides.length}`;
+
+    const percentage =
+        ((currentSlide + 1) / slides.length) * 100;
+
+    progress.style.width =
+        percentage + "%";
+
+    slides[currentSlide].scrollTop = 0;
+}
+
+
+/* =========================================================
+   SIGUIENTE
+========================================================= */
+
+function nextSlide(){
+
+    showSlide(
+        currentSlide + 1
+    );
+
+}
+
+
+/* =========================================================
+   ANTERIOR
+========================================================= */
+
+function previousSlide(){
+
+    showSlide(
+        currentSlide - 1
+    );
+
+}
+
+
+/* =========================================================
+   IR A DIAPOSITIVA
+========================================================= */
+
+function goToSlide(index){
+
+    showSlide(index);
+
+    document
+        .getElementById("menuPanel")
+        .classList
+        .remove("show");
+
+}
+
+
+/* =========================================================
+   MENÚ
+========================================================= */
+
+function toggleMenu(){
+
+    document
+        .getElementById("menuPanel")
+        .classList
+        .toggle("show");
+
+}
+
+
+/* =========================================================
+   PANTALLA COMPLETA
+========================================================= */
+
+function toggleFullscreen(){
+
+    if(!document.fullscreenElement){
+
+        document
+            .documentElement
+            .requestFullscreen();
+
+    }else{
+
+        document.exitFullscreen();
+
+    }
+
+}
+
+
+/* =========================================================
+   PREGUNTAS
+========================================================= */
+
+const questions = [
+
+    {
+        question:
+            "¿Quién pintó la Mona Lisa?",
+
+        answer:
+            "Leonardo da Vinci.",
+
+        icon:
+            "🎨"
+    },
+
+    {
+        question:
+            "¿En qué museo se encuentra actualmente la Mona Lisa?",
+
+        answer:
+            "En el Museo del Louvre, en París, Francia.",
+
+        icon:
+            "🏛️"
+    },
+
+    {
+        question:
+            "¿Cómo se llama la técnica que utiliza transiciones suaves entre luces y sombras?",
+
+        answer:
+            "Sfumato.",
+
+        icon:
+            "🖌️"
+    },
+
+    {
+        question:
+            "¿En qué año fue robada la Mona Lisa?",
+
+        answer:
+            "En 1911.",
+
+        icon:
+            "🔎"
+    },
+
+    {
+        question:
+            "¿Cuál es otro nombre con el que se conoce a la Mona Lisa?",
+
+        answer:
+            "La Gioconda o Monna Lisa.",
+
+        icon:
+            "🖼️"
+    }
+
+];
+
+let currentQuestion = 0;
+
+const questionText =
+    document.getElementById("questionText");
+
+const answerText =
+    document.getElementById("answerText");
+
+const questionNumber =
+    document.getElementById("questionNumber");
+
+const questionProgress =
+    document.getElementById("questionProgress");
+
+const questionIcon =
+    document.getElementById("questionIcon");
+
+const answerButton =
+    document.getElementById("answerButton");
+
+
+function loadQuestion(){
+
+    const q =
+        questions[currentQuestion];
+
+    questionText.textContent =
+        q.question;
+
+    answerText.textContent =
+        q.answer;
+
+    questionIcon.textContent =
+        q.icon;
+
+    questionNumber.textContent =
+        `Pregunta ${currentQuestion + 1} de ${questions.length}`;
+
+    questionProgress.textContent =
+        `${currentQuestion + 1} / ${questions.length}`;
+
+    answerText.classList.remove("show");
+
+    answerButton.textContent =
+        "MOSTRAR RESPUESTA";
+
+}
+
+
+function showAnswer(){
+
+    if(
+        answerText.classList.contains("show")
+    ){
+
+        answerText.classList.remove("show");
+
+        answerButton.textContent =
+            "MOSTRAR RESPUESTA";
+
+    }else{
+
+        answerText.classList.add("show");
+
+        answerButton.textContent =
+            "OCULTAR RESPUESTA";
+
+    }
+
+}
+
+
+function nextQuestion(){
+
+    currentQuestion++;
+
+    if(
+        currentQuestion >= questions.length
+    ){
+
+        currentQuestion = 0;
+
+    }
+
+    loadQuestion();
+
+}
+
+
+/* =========================================================
+   TECLADO
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "ArrowRight" ||
+            event.key === " " ||
+            event.key === "PageDown"
+        ){
+
+            event.preventDefault();
+
+            nextSlide();
+
+        }
+
+
+        if(
+            event.key === "ArrowLeft" ||
+            event.key === "PageUp"
+        ){
+
+            event.preventDefault();
+
+            previousSlide();
+
+        }
+
+
+        if(event.key === "Home"){
+
+            event.preventDefault();
+
+            goToSlide(0);
+
+        }
+
+
+        if(event.key === "End"){
+
+            event.preventDefault();
+
+            goToSlide(
+                slides.length - 1
+            );
+
+        }
+
+
+        if(
+            event.key.toLowerCase() === "f"
+        ){
+
+            toggleFullscreen();
+
+        }
+
+
+        if(event.key === "Escape"){
+
+            document
+                .getElementById("menuPanel")
+                .classList
+                .remove("show");
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   DESLIZAMIENTO EN CELULAR
+========================================================= */
+
+let touchStartX = 0;
+
+document.addEventListener(
+    "touchstart",
+    function(event){
+
+        touchStartX =
+            event.changedTouches[0].screenX;
+
+    }
+);
+
+document.addEventListener(
+    "touchend",
+    function(event){
+
+        const touchEndX =
+            event.changedTouches[0].screenX;
+
+        const difference =
+            touchStartX - touchEndX;
+
+        if(
+            Math.abs(difference) > 60
+        ){
+
+            if(difference > 0){
+
+                nextSlide();
+
+            }else{
+
+                previousSlide();
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CERRAR MENÚ AL HACER CLICK FUERA
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        const menu =
+            document.querySelector(".menu");
+
+        if(
+            !menu.contains(event.target)
+        ){
+
+            document
+                .getElementById("menuPanel")
+                .classList
+                .remove("show");
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   INICIO
+========================================================= */
+
+loadQuestion();
+
+showSlide(0);
+
+</script>
+
+</body>
+</html>

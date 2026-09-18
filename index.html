@@ -330,7 +330,7 @@ p{
 }
 
 .ornament span{
-    font-size:20px;
+    font-size:16px;
 }
 
 
@@ -383,7 +383,10 @@ p{
 }
 
 .card .icon{
-    font-size:38px;
+    font-family:Georgia,serif;
+    font-size:28px;
+    color:var(--dorado);
+    letter-spacing:2px;
     margin-bottom:18px;
 }
 
@@ -660,7 +663,11 @@ button:hover{
 }
 
 .question-icon{
-    font-size:48px;
+    font-family:Georgia,serif;
+
+    font-size:32px;
+
+    color:var(--dorado);
 
     margin-bottom:20px;
 }
@@ -1061,7 +1068,7 @@ Mona Lisa
 </h1>
 
 <div class="ornament">
-<span>❦</span>
+<span>•</span>
 </div>
 
 <h2>
@@ -1122,7 +1129,7 @@ en París.
 </p>
 
 <div class="ornament">
-<span>✦</span>
+<span>•</span>
 </div>
 
 <div class="card">
@@ -1183,7 +1190,7 @@ Leonardo da Vinci
 <img
 class="art"
 src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Leonardo_self.jpg"
-alt="Autorretrato de Leonardo">
+alt="Retrato de Leonardo">
 
 <div class="caption">
 Retrato tradicionalmente atribuido
@@ -1217,7 +1224,7 @@ profundamente en su arte.
 </p>
 
 <div class="ornament">
-<span>❦</span>
+<span>•</span>
 </div>
 
 <div class="card">
@@ -1368,7 +1375,7 @@ regresa al Louvre.
 <div class="card">
 
 <div class="icon">
-🎨
+SFUMATO
 </div>
 
 <h3>
@@ -1387,7 +1394,7 @@ sin contornos demasiado marcados.
 <div class="card">
 
 <div class="icon">
-👁️
+ROSTRO
 </div>
 
 <h3>
@@ -1406,7 +1413,7 @@ de espectadores.
 <div class="card">
 
 <div class="icon">
-🌄
+PAISAJE
 </div>
 
 <h3>
@@ -1424,7 +1431,7 @@ montañas, caminos y cuerpos de agua.
 <div class="card">
 
 <div class="icon">
-📐
+FORMA
 </div>
 
 <h3>
@@ -1535,7 +1542,7 @@ Cuando la Mona Lisa desapareció
 <div class="card">
 
 <div class="icon">
-🏛️
+MUSEO
 </div>
 
 <h3>
@@ -1553,7 +1560,7 @@ provocando una enorme atención pública.
 <div class="card">
 
 <div class="icon">
-🔎
+CASO
 </div>
 
 <h3>
@@ -1571,7 +1578,7 @@ mientras el caso recibía atención internacional.
 <div class="card">
 
 <div class="icon">
-🇮🇹
+ITALIA
 </div>
 
 <h3>
@@ -1589,7 +1596,7 @@ dos años después de su desaparición.
 <div class="card">
 
 <div class="icon">
-🖼️
+REGRESO
 </div>
 
 <h3>
@@ -1647,7 +1654,7 @@ de diferentes partes del mundo.
 </p>
 
 <div class="ornament">
-<span>✦</span>
+<span>•</span>
 </div>
 
 <div class="card">
@@ -1670,7 +1677,7 @@ del mundo.
 <div class="card fact">
 
 <div class="big-number">
-🇫🇷
+LOUVRE
 </div>
 
 <h3>
@@ -1711,7 +1718,7 @@ París, Francia
 <div class="card">
 
 <div class="icon">
-🌎
+MUNDO
 </div>
 
 <h3>
@@ -1729,7 +1736,7 @@ en libros, películas, publicidad y cultura popular.
 <div class="card">
 
 <div class="icon">
-🎬
+CINE
 </div>
 
 <h3>
@@ -1747,7 +1754,7 @@ en diferentes medios.
 <div class="card">
 
 <div class="icon">
-🔬
+ESTUDIO
 </div>
 
 <h3>
@@ -1765,7 +1772,7 @@ continúan siendo estudiados.
 <div class="card">
 
 <div class="icon">
-🖼️
+ARTE
 </div>
 
 <h3>
@@ -1880,13 +1887,13 @@ Preguntas para mis compañeros
 </h2>
 
 <div class="ornament">
-<span>❦</span>
+<span>•</span>
 </div>
 
 <div class="question-card">
 
 <div class="question-icon" id="questionIcon">
-❓
+PREGUNTA
 </div>
 
 <div class="question-number" id="questionNumber">
@@ -1918,7 +1925,7 @@ MOSTRAR RESPUESTA
 class="question-button"
 onclick="nextQuestion()">
 
-SIGUIENTE PREGUNTA ›
+SIGUIENTE PREGUNTA
 
 </button>
 
@@ -1956,7 +1963,7 @@ que atravesó los siglos
 </h2>
 
 <div class="ornament">
-<span>❦</span>
+<span>•</span>
 </div>
 
 <p class="quote">
@@ -2265,7 +2272,7 @@ const questions = [
             "Leonardo da Vinci.",
 
         icon:
-            "🎨"
+            "01"
     },
 
     {
@@ -2276,7 +2283,7 @@ const questions = [
             "En el Museo del Louvre, en París, Francia.",
 
         icon:
-            "🏛️"
+            "02"
     },
 
     {
@@ -2287,7 +2294,7 @@ const questions = [
             "Sfumato.",
 
         icon:
-            "🖌️"
+            "03"
     },
 
     {
@@ -2298,7 +2305,7 @@ const questions = [
             "En 1911.",
 
         icon:
-            "🔎"
+            "04"
     },
 
     {
@@ -2309,7 +2316,7 @@ const questions = [
             "La Gioconda o Monna Lisa.",
 
         icon:
-            "🖼️"
+            "05"
     }
 
 ];
